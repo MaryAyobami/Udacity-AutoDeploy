@@ -29,7 +29,7 @@ commands:
           name: Revert migrations
           when: on_fail
           command: |
-            SUCCESS=$(curl --insecure  https://kvdb.io/4VJ274WBBHEq9RdkvTFDeu/migration_${CIRCLE_WORKFLOW_ID:0:7})
+            SUCCESS=$(curl --insecure  https://kvdb.io/8mX7YYRtoYwWnZGPihNqwN/migration_${CIRCLE_WORKFLOW_ID:0:7})
             if (($SUCCESS == 1))
             then
               cd ~/project/backend
@@ -197,7 +197,7 @@ jobs:
       # Add ssh keys with fingerprint
       - add_ssh_keys:
          fingerprints:
-            - "0c:48:84:3d:29:67:f8:7b:ff:85:c7:d1:37:9d:bc:08"
+            - "bc:ec:3f:65:21:d7:94:5b:1a:c2:bb:44:85:5a:9a:06"
       # attach workspace
       - attach_workspace:
           at: ~/
@@ -244,7 +244,7 @@ jobs:
           command: |
             if grep -q "has been executed successfully." ~/project/backend/migrations_dump.txt
             then
-                curl --insecure https://kvdb.io/4VJ274WBBHEq9RdkvTFDeu/migration_${CIRCLE_WORKFLOW_ID:0:7} -d '1'
+                curl --insecure https://kvdb.io/8mX7YYRtoYwWnZGPihNqwN/migration_${CIRCLE_WORKFLOW_ID:0:7} -d '1'
             fi
      # Here's where you will add some code to rollback on failure
       - destroy-environment:
@@ -302,7 +302,7 @@ jobs:
       # Add ssh keys with fingerprint
       - add_ssh_keys:
          fingerprints:
-            - "0c:48:84:3d:29:67:f8:7b:ff:85:c7:d1:37:9d:bc:08"
+            - "bc:ec:3f:65:21:d7:94:5b:1a:c2:bb:44:85:5a:9a:06"
       # attach workspace
       - attach_workspace:
           at: ~/
